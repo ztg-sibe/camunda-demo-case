@@ -72,3 +72,11 @@ You will find the relevant Camunda files in `src/main/resources`.
 There is a "process test" that is running the complete business process in an embedded engine at `io.camunda.demo.camundacatfactfinder.CatFactProcessTest`. This test can be executed stand-alone from within the IDE. 
 After execution, run the report at `target/process-test-coverage/io.camunda.demo.camundacatfactfinder.CatFactProcessTest/report.html` to investigate the test coverage.
 
+## Other Examples and resources
+* [Camunda Examples](https://github.com/camunda-community-hub/camunda-8-examples)
+  * https://github.com/camunda-community-hub/camunda-8-examples/tree/main/twitter-review-java-springboot
+* [Zeebe process test](https://github.com/camunda/zeebe-process-test)
+  * https://github.com/camunda/zeebe-process-test/blob/main/examples/src/test/java/io/camunda/zeebe/process/test/examples/PullRequestProcessTest.java
+* Useful documentation links
+  * [Test processes](https://docs.camunda.io/docs/components/best-practices/development/testing-process-definitions/)
+  * [Exception Handling](https://docs.camunda.io/docs/components/best-practices/development/dealing-with-problems-and-exceptions/)
