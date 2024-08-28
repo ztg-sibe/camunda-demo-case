@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0b1lvmi" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.26.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.5.0">
+  <bpmn:process id="Process_151e385" name="Schmu" isExecutable="true">
+    <bpmn:extensionElements />
+    <bpmn:startEvent id="StartEvent_1" name="start">
+      <bpmn:outgoing>Flow_1vjowx5</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_1rg709x" name="end">
+      <bpmn:incoming>Flow_1if4yg2</bpmn:incoming>
+      <bpmn:incoming>Flow_005927d</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Activity_142j5pj" name="Load cat facts">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="load-cat-facts" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_11ryvx4</bpmn:incoming>
+      <bpmn:outgoing>Flow_10wsqfm</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="Activity_0gt4i06" name="Select number of cat facts">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formId="Form_1a40lfn" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1vjowx5</bpmn:incoming>
+      <bpmn:outgoing>Flow_11ryvx4</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1vjowx5" sourceRef="StartEvent_1" targetRef="Activity_0gt4i06" />
+    <bpmn:sequenceFlow id="Flow_11ryvx4" sourceRef="Activity_0gt4i06" targetRef="Activity_142j5pj" />
+    <bpmn:sequenceFlow id="Flow_10wsqfm" sourceRef="Activity_142j5pj" targetRef="Activity_00ace6x" />
+    <bpmn:sequenceFlow id="Flow_1if4yg2" sourceRef="Activity_00ace6x" targetRef="Event_1rg709x" />
+    <bpmn:userTask id="Activity_00ace6x" name="Display cat facts">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formId="Form_0gsj2w1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="=cat_facts" target="jokes" />
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_10wsqfm</bpmn:incoming>
+      <bpmn:outgoing>Flow_1if4yg2</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:boundaryEvent id="Event_1vew6g3" attachedToRef="Activity_142j5pj">
+      <bpmn:outgoing>Flow_1mign2a</bpmn:outgoing>
+      <bpmn:errorEventDefinition id="ErrorEventDefinition_1nyzpw8" errorRef="Error_0vvnnlv" />
+    </bpmn:boundaryEvent>
+    <bpmn:sequenceFlow id="Flow_1mign2a" sourceRef="Event_1vew6g3" targetRef="Activity_1ogc5cp" />
+    <bpmn:task id="Activity_1ogc5cp" name="badumm tss">
+      <bpmn:incoming>Flow_1mign2a</bpmn:incoming>
+      <bpmn:outgoing>Flow_005927d</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_005927d" sourceRef="Activity_1ogc5cp" targetRef="Event_1rg709x" />
+  </bpmn:process>
+  <bpmn:error id="Error_0vvnnlv" name="something bad happened" errorCode="CANNOT_COMPUTE" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_151e385">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="152" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="159" y="142" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1rg709x_di" bpmnElement="Event_1rg709x">
+        <dc:Bounds x="932" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="940" y="75" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ftobug_di" bpmnElement="Activity_142j5pj">
+        <dc:Bounds x="530" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_13ax7tt_di" bpmnElement="Activity_0gt4i06">
+        <dc:Bounds x="320" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0y732xq_di" bpmnElement="Activity_00ace6x">
+        <dc:Bounds x="740" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0g8tsoh_di" bpmnElement="Activity_1ogc5cp">
+        <dc:Bounds x="740" y="220" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1vew6g3_di" bpmnElement="Event_1vew6g3">
+        <dc:Bounds x="532" y="139" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1vjowx5_di" bpmnElement="Flow_1vjowx5">
+        <di:waypoint x="188" y="117" />
+        <di:waypoint x="320" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11ryvx4_di" bpmnElement="Flow_11ryvx4">
+        <di:waypoint x="420" y="117" />
+        <di:waypoint x="530" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10wsqfm_di" bpmnElement="Flow_10wsqfm">
+        <di:waypoint x="630" y="117" />
+        <di:waypoint x="740" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1if4yg2_di" bpmnElement="Flow_1if4yg2">
+        <di:waypoint x="840" y="117" />
+        <di:waypoint x="932" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1mign2a_di" bpmnElement="Flow_1mign2a">
+        <di:waypoint x="550" y="175" />
+        <di:waypoint x="550" y="260" />
+        <di:waypoint x="740" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_005927d_di" bpmnElement="Flow_005927d">
+        <di:waypoint x="840" y="260" />
+        <di:waypoint x="881" y="260" />
+        <di:waypoint x="881" y="117" />
+        <di:waypoint x="932" y="117" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

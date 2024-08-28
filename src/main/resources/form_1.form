@@ -1,0 +1,41 @@
+{
+  "components": [
+    {
+      "text": "# Let's have a good time :)",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0504p0x",
+        "columns": null
+      },
+      "id": "Field_091lhh7"
+    },
+    {
+      "label": "How many cat facts do you need?",
+      "type": "number",
+      "layout": {
+        "row": "Row_1qiogly",
+        "columns": null
+      },
+      "id": "Field_1or7kgt",
+      "key": "number_of_facts",
+      "defaultValue": 3,
+      "decimalDigits": 0,
+      "increment": "1",
+      "validate": {
+        "required": true,
+        "min": 1,
+        "max": 10
+      }
+    }
+  ],
+  "type": "default",
+  "id": "Form_1a40lfn",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.5.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.26.0"
+  },
+  "schemaVersion": 16
+}
