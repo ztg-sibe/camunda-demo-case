@@ -1,0 +1,23 @@
+{
+  "components": [
+    {
+      "label": "The background check did reveal serious concerns for this User ",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_10zxcf0",
+        "columns": null
+      },
+      "id": "Field_0bay10f",
+      "key": "have_concern"
+    }
+  ],
+  "type": "default",
+  "id": "Form_0sugyaz",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.5.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.26.0"
+  },
+  "schemaVersion": 16
+}
