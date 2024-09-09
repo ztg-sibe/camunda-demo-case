@@ -39,7 +39,16 @@ This example contains a simple process with a user input (select number of cat f
 
 ### Deploy the diagrams and run the application
 
-You will find the relevant Camunda files in `src/main/resources`. 
+You will find the relevant Camunda files in `src/main/resources`. Per default, the spring application only runs the 
+microservice and you have to take care of deploying the diagrams manually. I recommend doing this first, to understand how
+it is working. However, if you enable this line in the spring application,
+```java
+@Deployment(resources = {"classpath:deploy/*.bpmn","classpath:deploy/*.form"})
+```
+the diagrams are automatically deployed on start. This is very useful for development as you always get the latest version of your workflow.
+
+
+
 * Open the `.bpmn` and both `.form` files in the desktop modeller and deploy them. **You need to deploy each file**.
 * Start the process by **either**
   * press the RUN arrow next to deployment of the `.bpmn` file **OR**
@@ -67,6 +76,8 @@ You will find the relevant Camunda files in `src/main/resources`.
 2024-08-28T10:21:14.496+02:00  INFO 49080 --- [camunda-cat-fact-finder] [pool-2-thread-1] i.c.d.c.LoadCatFactsWorker               : Loading 3 cat facts
 ```
 
+
+
 ### Run the test
 
 There is a "process test" that is running the complete business process in an embedded engine at `io.camunda.demo.camundacatfactfinder.CatFactProcessTest`. This test can be executed stand-alone from within the IDE. 
@@ -80,3 +91,6 @@ After execution, run the report at `target/process-test-coverage/io.camunda.demo
 * Useful documentation links
   * [Test processes](https://docs.camunda.io/docs/components/best-practices/development/testing-process-definitions/)
   * [Exception Handling](https://docs.camunda.io/docs/components/best-practices/development/dealing-with-problems-and-exceptions/)
+* [Camunda Connectors](https://github.com/camunda/connectors)
+  * [Rest Connector](https://github.com/camunda/connectors/tree/main/connectors/http/rest/element-templates)
+  * [Custom connectors](https://docs.camunda.io/docs/components/connectors/custom-built-connectors/connector-templates/)

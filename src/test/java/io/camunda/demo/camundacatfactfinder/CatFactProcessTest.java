@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 @ZeebeSpringTest
-@Deployment(resources = {"classpath:cat_process.bpmn", "classpath:form_1.form", "classpath:form_2.form"})
+@Deployment(resources = {"classpath:deploy/cat_process.bpmn", "classpath:deploy/form_1.form", "classpath:deploy/form_2.form"})
 @ExtendWith(ProcessEngineCoverageExtension.class)
 public class CatFactProcessTest {
 

@@ -7,7 +7,6 @@
     </bpmn:startEvent>
     <bpmn:endEvent id="Event_1rg709x" name="end">
       <bpmn:incoming>Flow_1if4yg2</bpmn:incoming>
-      <bpmn:incoming>Flow_005927d</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:serviceTask id="Activity_142j5pj" name="Load cat facts">
       <bpmn:extensionElements>
@@ -41,14 +40,13 @@
       <bpmn:outgoing>Flow_1mign2a</bpmn:outgoing>
       <bpmn:errorEventDefinition id="ErrorEventDefinition_1nyzpw8" errorRef="Error_0vvnnlv" />
     </bpmn:boundaryEvent>
-    <bpmn:sequenceFlow id="Flow_1mign2a" sourceRef="Event_1vew6g3" targetRef="Activity_1ogc5cp" />
-    <bpmn:task id="Activity_1ogc5cp" name="badumm tss">
+    <bpmn:sequenceFlow id="Flow_1mign2a" sourceRef="Event_1vew6g3" targetRef="Event_0uc36ca" />
+    <bpmn:endEvent id="Event_0uc36ca" name="we are done here">
       <bpmn:incoming>Flow_1mign2a</bpmn:incoming>
-      <bpmn:outgoing>Flow_005927d</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:sequenceFlow id="Flow_005927d" sourceRef="Activity_1ogc5cp" targetRef="Event_1rg709x" />
+    </bpmn:endEvent>
   </bpmn:process>
   <bpmn:error id="Error_0vvnnlv" name="something bad happened" errorCode="CANNOT_COMPUTE" />
+  <bpmn:error id="Error_0mr1l74" name="Error_36r22re" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_151e385">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
@@ -74,9 +72,11 @@
       <bpmndi:BPMNShape id="Activity_0y732xq_di" bpmnElement="Activity_00ace6x">
         <dc:Bounds x="740" y="77" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0g8tsoh_di" bpmnElement="Activity_1ogc5cp">
-        <dc:Bounds x="740" y="220" width="100" height="80" />
-        <bpmndi:BPMNLabel />
+      <bpmndi:BPMNShape id="Event_0uc36ca_di" bpmnElement="Event_0uc36ca">
+        <dc:Bounds x="932" y="212" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="907" y="255" width="86" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1vew6g3_di" bpmnElement="Event_1vew6g3">
         <dc:Bounds x="532" y="139" width="36" height="36" />
@@ -99,14 +99,8 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1mign2a_di" bpmnElement="Flow_1mign2a">
         <di:waypoint x="550" y="175" />
-        <di:waypoint x="550" y="260" />
-        <di:waypoint x="740" y="260" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_005927d_di" bpmnElement="Flow_005927d">
-        <di:waypoint x="840" y="260" />
-        <di:waypoint x="881" y="260" />
-        <di:waypoint x="881" y="117" />
-        <di:waypoint x="932" y="117" />
+        <di:waypoint x="550" y="230" />
+        <di:waypoint x="932" y="230" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
